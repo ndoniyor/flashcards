@@ -4,7 +4,7 @@ Submitted by: **Doniyor Nimatullo**
 
 This web app: **Flashcards web app that randomly outputs flashcards pertaining to various topics in operating systems.**
 
-Time spent: **1.5** hours spent in total
+Time spent: **1.75** hours spent in total
 
 ## Required Features
 
@@ -30,8 +30,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzQwYmRjMjJhOTViMGQzZGYyNDc3NGY2YjcyOGM5NmY0MTJjZDZjZCZjdD1n/uuSJnv2XuuKsKgpyDV/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+<img src='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjRhNzczMzljMGVhY2M0MWRiM2I2OWFiZjRmNjk0NTE2N2M5NzU5YiZjdD1n/vZbK3118z16Aza9M2F/giphy.gif' width='' alt='Video Walkthrough' />
+* I think the GIF framerate makes the spin seem inconsistent, but in testing it's working as shown on the sample site.
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Kooha (Linux)
 

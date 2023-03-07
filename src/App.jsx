@@ -55,6 +55,8 @@ const App = () => {
   
   const handleClick = () =>{
     setFront(!isFront);
+    const container = document.querySelector(".flashcardContainer");
+    container.classList.toggle("flipped");
   }
   
   const nextQuestion = () => {
@@ -64,6 +66,8 @@ const App = () => {
     }while (randIndex === questionNumber);
 
     setPrev(questionNumber)
+    const container = document.querySelector(".flashcardContainer");
+    container.classList.remove("flipped");
     setNumber(randIndex);
     setFront(true);
   }
