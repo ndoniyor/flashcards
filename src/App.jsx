@@ -1,10 +1,33 @@
 import { useState } from 'react'
 import './App.css'
+import { FlashcardForm } from "./components/FlashcardForm"
 
 const questionsAnswers = {
   1: {
+    question:"test1",
+    answer:"ans",
+  },
+  2: {
+    question:"test2",
+    answer:"ans",
+  },
+  3: {
+    question:"test3",
+    answer:"ans",
+  },
+  4: {
+    question:"test4",
+    answer:"ans",
+  },
+  5: {
+    question:"test5",
+    answer:"ans",
+  }
+}
+const NOTquestionsAnswers = {
+  1: {
     question: "What are the two types of I/O devices?",
-    answer: "Block and character devices",
+    answer: "ans",
   },
   2: {
     question: "How does memory-mapped I/O help with reading/writing registers with C?",
@@ -52,7 +75,19 @@ const App = () => {
   const [questionNumber, setNumber] = useState(1);
 
   const [isFront, setFront] = useState(true);
+
+  const [streak,setStreak] = useState(0);
   
+  const handleSubmit = (inputVal) =>{
+    if(inputVal.toLowerCase() === questionsAnswers[questionNumber].answer){
+        setStreak(streak+1)
+    }
+    else{
+        setStreak(0)
+    }
+    nextQuestion();
+  }
+
   const handleClick = () =>{
     setFront(!isFront);
     const container = document.querySelector(".flashcardContainer");
@@ -81,7 +116,6 @@ const App = () => {
       <h1>Operating Systems Review</h1>
       <h2>Number of cards: {deckLength}</h2>
       <h3>Test your knowledge on memory, I/O and instruction processing!</h3>
-
       <div className="flashcardContainer" onClick={handleClick}>
         {isFront ? (
           <div className='flashcardQuestion'>
@@ -93,6 +127,10 @@ const App = () => {
            </div>
         )}
       </div>
+      <FlashcardForm 
+      onSubmit={handleSubmit}
+      />
+      <h4>Answer Streak: {streak}</h4>
       <div className="btnContainer">
         <div className="previousBtn">
           <button className="navBtn" onClick={prevQuestion}>←</button>
