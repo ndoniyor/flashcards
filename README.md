@@ -1,43 +1,36 @@
-# Web Development Project 1 - *Operating Systems Flashcards*
+# Web Development Project 3 - *Operating Systems Flashcards*
 
 Submitted by: **Doniyor Nimatullo**
 
-This web app: **Flashcards web app that randomly outputs flashcards pertaining to various topics in operating systems.**
+This web app: **Flashcards web app that randomly outputs flashcards pertaining to various topics in operating systems, with capability of receieving user inputs and showing answer feedback/streak**
 
-Time spent: **1.75** hours spent in total
+Time spent: **1.5** hours spent in total
 
 ## Required Features
 
-The following **required** functionality is completed:
-
-- [x] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [x] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [x] **A list of card pairs is created**
-- [x] **Clicking on the card shows the corresponding component of the information pair**
-- [x] **Clicking the next button displays a random new card**
+- [x] **The user can enter their guess in a box before seeing the flipside of the card**
+- [x] **Clicking on a submit button shows visual feedback about whether the answer was correct or incorrect**
+- [x] **A back button is displayed on the card and can be used to return to the previous card in a set sequence**
+- [x] **A next button is displayed on the card and can be used to navigate to the next card in a set sequence**
 
 The following **optional** features are implemented:
 
-- [ ] Cards contains images in addition to or in place of text
-- [ ] Cards have different visual styles such as color based on their category
-- [x] *visual style implemented*
-
-The following **additional** features are implemented:
-
-* [ ] List anything else that you added to improve the site's functionality!
+- [x] A shuffle button is used to randomize the order of the cards
+- [x] A user's answer may be counted as correct even when it is slightly different from the target answer (in terms of capitalization)
+- [x] A counter displays the user's current and longest streak of correct responses
+- [ ] A user can mark a card that they have mastered and have it removed from the pool of answers as well as added to a list of mastered cards
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjRhNzczMzljMGVhY2M0MWRiM2I2OWFiZjRmNjk0NTE2N2M5NzU5YiZjdD1n/vZbK3118z16Aza9M2F/giphy.gif' width='' alt='Video Walkthrough' />
-* I think the GIF framerate makes the spin seem inconsistent, but in testing it's working as shown on the sample site.
+<img src='https://im.ezgif.com/tmp/ezgif-1-dcc7bc057c.gif' width='' alt='Video Walkthrough' />
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Kooha (Linux)
 
 ## Notes
 
-The biggest challenge was implementing the random feature for the next card button, and being able to go back to the previous card because of that.
+The biggest challenge in this part was getting the shuffling to work properly.
 
 ## License
 
