@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, {useState} from "react";
 
 export const FlashcardForm = ({onSubmit}) => {
     const [inputVal,setInput] = useState('');
@@ -16,7 +16,7 @@ export const FlashcardForm = ({onSubmit}) => {
     return(
         <div className="answer-form">
             <form onSubmit={handleSubmit}>
-            <label>Answer:</label>
+            <label>Answer: </label>
             <input 
                 type="text"
                 value={inputVal}

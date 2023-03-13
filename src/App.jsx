@@ -4,34 +4,12 @@ import { FlashcardForm } from "./components/FlashcardForm"
 
 const questionsAnswers = {
   1: {
-    question:"test1",
-    answer:"ans",
-  },
-  2: {
-    question:"test2",
-    answer:"ans",
-  },
-  3: {
-    question:"test3",
-    answer:"ans",
-  },
-  4: {
-    question:"test4",
-    answer:"ans",
-  },
-  5: {
-    question:"test5",
-    answer:"ans",
-  }
-}
-const NOTquestionsAnswers = {
-  1: {
     question: "What are the two types of I/O devices?",
-    answer: "ans",
+    answer: "Block and character devices",
   },
   2: {
     question: "How does memory-mapped I/O help with reading/writing registers with C?",
-    answer: "I/O with MMI/O can be addressed as a variable in C since it is just in memory.",
+    answer: "I/O with MMI/O can be addressed as a variable in C since it is just in memory",
   },
   3: {
     question: "Why does MMI/O not need special protection mechanisms?",
@@ -51,7 +29,7 @@ const NOTquestionsAnswers = {
   },
   7: {
     question: "How does room for growth of a process work in a data segment with a heap and a stack?",
-    answer: "The process’ heap grows upwards and the stack grows downwards and the area in-between is the room for growth.",
+    answer: "The process’ heap grows upwards and the stack grows downwards and the area in-between is the room for growth",
   },
   8: {
     question: "Which physical component maps virtual addresses to physical addresses?",
@@ -59,7 +37,7 @@ const NOTquestionsAnswers = {
   },
   9: {
     question: "What are the units in virtual memory and their corresponding unit in physical memory called?",
-    answer:"Pages and page frames.",
+    answer:"Pages and page frames",
   },
   10: {
     question:"What bit keeps track of which pages are physically present in memory?",
@@ -67,25 +45,53 @@ const NOTquestionsAnswers = {
   }
 }
 
+function shuffleCards() {
+  let shuffledDeck = {};
+  const keysArr = Object.keys(questionsAnswers);
+  for(let i = keysArr.length - 1; i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [keysArr[i], keysArr[j]] = [keysArr[j], keysArr[i]];
+  }
+  let i = 1;
+  for (let key of keysArr) {
+    shuffledDeck[i] = questionsAnswers[key];
+    i=i+1;
+  }
+  return shuffledDeck;
+}
+
 const deckLength = Object.keys(questionsAnswers).length;
 
 const App = () => {
-  const [prevNumber, setPrev] = useState(1);
-
   const [questionNumber, setNumber] = useState(1);
 
   const [isFront, setFront] = useState(true);
 
   const [streak,setStreak] = useState(0);
-  
+
+  const [answerState, setAnswerState] = useState(0);
+
+  const [currDeck, setDeck] = useState(questionsAnswers);
+
+  const [whichDeck, setShuffle] = useState(true);
+
   const handleSubmit = (inputVal) =>{
-    if(inputVal.toLowerCase() === questionsAnswers[questionNumber].answer){
+    console.log(inputVal.toLowerCase())
+    if(inputVal.toLowerCase() === currDeck[questionNumber].answer.toLowerCase()){
         setStreak(streak+1)
+        setAnswerState(1);
+        setTimeout(() => {
+          setAnswerState(0);
+        }, 2000);
+        nextQuestion();
     }
     else{
-        setStreak(0)
+        setStreak(0);
+        setAnswerState(2);
+        setTimeout(() => {
+          setAnswerState(0);
+        }, 2000);
     }
-    nextQuestion();
   }
 
   const handleClick = () =>{
@@ -95,48 +101,66 @@ const App = () => {
   }
   
   const nextQuestion = () => {
-    let randIndex;
-    do{
-      randIndex = Math.floor(Math.random() * deckLength) + 1;
-    }while (randIndex === questionNumber);
-
-    setPrev(questionNumber)
-    const container = document.querySelector(".flashcardContainer");
-    container.classList.remove("flipped");
-    setNumber(randIndex);
-    setFront(true);
+    if(questionNumber !== deckLength)
+      setNumber(questionNumber+1)
+      setFront(true);
   }
 
   const prevQuestion = () =>{
-      setNumber(prevNumber)
+    if(questionNumber !== 1)
+    setNumber(questionNumber-1)
   }
+  
+  const handleDeck = () =>{
+    setShuffle(!whichDeck);
+    console.log(whichDeck)
+    if(whichDeck){
+      setDeck(questionsAnswers)
+    }
+    else{
+      setDeck(shuffleCards())
+    }
+    setNumber(1)
+  }
+
+
 
   return (
     <div className="App">
       <h1>Operating Systems Review</h1>
       <h2>Number of cards: {deckLength}</h2>
-      <h3>Test your knowledge on memory, I/O and instruction processing!</h3>
+      <h4>Test your knowledge on memory, I/O and instruction processing!</h4>
+      <h4>Current Streak: {streak}</h4>
       <div className="flashcardContainer" onClick={handleClick}>
         {isFront ? (
           <div className='flashcardQuestion'>
-            {questionsAnswers[questionNumber].question}
+            {currDeck[questionNumber].question}
           </div>
         ) : (
           <div className='flashcardAnswer'>
-            {questionsAnswers[questionNumber].answer}
+            {currDeck[questionNumber].answer}
            </div>
         )}
       </div>
       <FlashcardForm 
       onSubmit={handleSubmit}
       />
-      <h4>Answer Streak: {streak}</h4>
+      <div className="answerFeedback">
+        {answerState === 1 ? 
+        <p>Correct!</p> : 
+        answerState === 2 ? 
+        <p>Incorrect</p> : 
+        null}
+      </div>
       <div className="btnContainer">
         <div className="previousBtn">
           <button className="navBtn" onClick={prevQuestion}>←</button>
         </div>
         <div className="nextBtn">
           <button className="navBtn" onClick={nextQuestion}>→</button>
+        </div>
+        <div className="shuffleBtn">
+          <button className="navBtn" onClick={handleDeck}>{whichDeck ? "Unshuffle" : "Shuffle"}</button>
         </div>
       </div>
     </div>
