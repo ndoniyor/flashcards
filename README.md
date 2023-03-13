@@ -24,7 +24,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://im.ezgif.com/tmp/ezgif-1-dcc7bc057c.gif' width='' alt='Video Walkthrough' />
+<img src='https://im.ezgif.com/tmp/ezgif-1-77f85c8f70.gif' width='' alt='Video Walkthrough' />
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Kooha (Linux)
 
