@@ -24,7 +24,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDhlYjUzODcyNzM3YjNkNTAzNjEzZjZkZjE1OGI1NTA1Yjg0ZGVjMSZjdD1n/7iAuAXoignfct4bGek/giphy.gif' width='' alt='Video Walkthrough' />
+<img src='https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2Y4NzcwZTczM2M4NmNiZDFiYTc4YTQ2MTliMzMyNTYyMjcxYjkxMCZjdD1n/BZzBAaU50iX9Kmra8C/giphy.gif' width='' alt='Video Walkthrough' />
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Kooha (Linux)
 
